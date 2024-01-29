@@ -1,4 +1,6 @@
 using Coldrun.Database.Entities;
+using Coldrun.Queries.Trucks.GetTruck;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coldrun.API.Controllers
@@ -7,6 +9,13 @@ namespace Coldrun.API.Controllers
     [Route("[controller]")]
     public class TruckController : ControllerBase
     {
+        private readonly IMediator _mediator;
+
+        public TruckController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpPost]
         public IActionResult CreateTruck([FromBody] Truck truck)
         {
@@ -14,9 +23,16 @@ namespace Coldrun.API.Controllers
         }
 
         [HttpGet("{code}")]
-        public IActionResult GetTruck(string code)
+        public async Task<IActionResult> GetTruck(string code)
         {
-            return Ok();
+            var request = new GetTruckQuery()
+            {
+                Code = code
+            };
+
+            var result = await _mediator.Send(request);  
+            
+            return Ok(result);
         }
 
         [HttpGet]

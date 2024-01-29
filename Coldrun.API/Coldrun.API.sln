@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coldrun.API", "Coldrun.API\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coldrun.Database", "Coldrun.Database\Coldrun.Database.csproj", "{12727FBE-BE61-49EF-9E9C-3CBC194B5D45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coldrun.Commands", "Coldrun.Commands\Coldrun.Commands.csproj", "{CDA3D5C9-D198-45AE-9DD6-DFA7F39EF5C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coldrun.Queries", "Coldrun.Queries\Coldrun.Queries.csproj", "{41BB1C7F-708F-480A-9CDA-C94ECB73D007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{12727FBE-BE61-49EF-9E9C-3CBC194B5D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12727FBE-BE61-49EF-9E9C-3CBC194B5D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12727FBE-BE61-49EF-9E9C-3CBC194B5D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA3D5C9-D198-45AE-9DD6-DFA7F39EF5C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA3D5C9-D198-45AE-9DD6-DFA7F39EF5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA3D5C9-D198-45AE-9DD6-DFA7F39EF5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA3D5C9-D198-45AE-9DD6-DFA7F39EF5C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41BB1C7F-708F-480A-9CDA-C94ECB73D007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41BB1C7F-708F-480A-9CDA-C94ECB73D007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41BB1C7F-708F-480A-9CDA-C94ECB73D007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41BB1C7F-708F-480A-9CDA-C94ECB73D007}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

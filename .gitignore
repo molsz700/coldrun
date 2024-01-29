@@ -9,3 +9,7 @@
 /Coldrun.API/.vs/ProjectEvaluation
 /Coldrun.API/Coldrun.Database/bin/Debug/net6.0
 /Coldrun.API/Coldrun.Database/obj
+/Coldrun.API/Coldrun.Commands/bin/Debug/net6.0
+/Coldrun.API/Coldrun.Commands/obj
+/Coldrun.API/Coldrun.Queries/bin/Debug/net6.0
+/Coldrun.API/Coldrun.Queries/obj

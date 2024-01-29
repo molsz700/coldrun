@@ -1,5 +1,8 @@
 using Coldrun.Database;
+using Coldrun.Queries.Trucks.GetTruck;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,8 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetTruckQueryHandler>());
 
 var app = builder.Build();
 
