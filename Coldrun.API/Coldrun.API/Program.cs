@@ -1,8 +1,8 @@
+using Coldrun.Commands.Trucks.CreateTruck;
 using Coldrun.Database;
 using Coldrun.Queries.Trucks.GetTruck;
-using Microsoft.AspNetCore.Hosting;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +17,9 @@ var connectionString = builder.Configuration.GetConnectionString("DbConnectionSt
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetTruckQueryHandler>());
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateTruckCommandHandler>());
+
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 
 var app = builder.Build();
 
