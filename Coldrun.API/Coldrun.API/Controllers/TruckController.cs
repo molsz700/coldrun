@@ -2,12 +2,10 @@ using Coldrun.Commands.Trucks.CreateTruck;
 using Coldrun.Commands.Trucks.DeleteTruck;
 using Coldrun.Commands.Trucks.UpdateTruck;
 using Coldrun.Database;
-using Coldrun.Database.Entities;
 using Coldrun.Queries.Trucks.GetTruck;
 using Coldrun.Queries.Trucks.GetTrucksFiltered;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 
 namespace Coldrun.API.Controllers
 {
@@ -16,18 +14,16 @@ namespace Coldrun.API.Controllers
     public class TruckController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly DatabaseContext _databaseContext;
 
-        public TruckController(IMediator mediator, DatabaseContext databaseContext)
+        public TruckController(IMediator mediator)
         {
             _mediator = mediator;
-            _databaseContext = databaseContext;
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateTruck([FromBody] CreateTruckCommand request)
         {
-            var validator = new CreateTruckCommandValidator(_databaseContext);
+            var validator = new CreateTruckCommandValidator();
             var validationResult = validator.Validate(request);
 
             if (validationResult.IsValid)
@@ -66,7 +62,7 @@ namespace Coldrun.API.Controllers
         [HttpPatch]
         public async Task<IActionResult> UpdateTruck([FromBody] UpdateTruckCommand request)
         {
-            var validator = new UpdateTruckCommandValidator(_databaseContext);
+            var validator = new UpdateTruckCommandValidator();
             var validationResult = validator.Validate(request);
 
             if (validationResult.IsValid)
@@ -89,7 +85,7 @@ namespace Coldrun.API.Controllers
                 Code = code
             };
 
-            var validator = new DeleteTruckCommandValidator(_databaseContext);
+            var validator = new DeleteTruckCommandValidator();
             var validationResult = validator.Validate(request);
 
             if (validationResult.IsValid)

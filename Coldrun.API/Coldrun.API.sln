@@ -5,11 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coldrun.API", "Coldrun.API\Coldrun.API.csproj", "{A52F32D6-2CF9-40B5-93F7-5780B891A5A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coldrun.Database", "Coldrun.Database\Coldrun.Database.csproj", "{12727FBE-BE61-49EF-9E9C-3CBC194B5D45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coldrun.Database", "Coldrun.Database\Coldrun.Database.csproj", "{12727FBE-BE61-49EF-9E9C-3CBC194B5D45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coldrun.Commands", "Coldrun.Commands\Coldrun.Commands.csproj", "{CDA3D5C9-D198-45AE-9DD6-DFA7F39EF5C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coldrun.Commands", "Coldrun.Commands\Coldrun.Commands.csproj", "{CDA3D5C9-D198-45AE-9DD6-DFA7F39EF5C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coldrun.Queries", "Coldrun.Queries\Coldrun.Queries.csproj", "{41BB1C7F-708F-480A-9CDA-C94ECB73D007}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coldrun.Queries", "Coldrun.Queries\Coldrun.Queries.csproj", "{41BB1C7F-708F-480A-9CDA-C94ECB73D007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coldrun.UnitTests", "Coldrun.UnitTests\Coldrun.UnitTests.csproj", "{921011F2-6D8C-4918-8056-3FBCA0644898}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{41BB1C7F-708F-480A-9CDA-C94ECB73D007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41BB1C7F-708F-480A-9CDA-C94ECB73D007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41BB1C7F-708F-480A-9CDA-C94ECB73D007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921011F2-6D8C-4918-8056-3FBCA0644898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921011F2-6D8C-4918-8056-3FBCA0644898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921011F2-6D8C-4918-8056-3FBCA0644898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921011F2-6D8C-4918-8056-3FBCA0644898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,3 +13,5 @@
 /Coldrun.API/Coldrun.Commands/obj
 /Coldrun.API/Coldrun.Queries/bin/Debug/net6.0
 /Coldrun.API/Coldrun.Queries/obj
+/Coldrun.API/Coldrun.UnitTests/bin/Debug/net6.0
+/Coldrun.API/Coldrun.UnitTests/obj

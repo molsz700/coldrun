@@ -16,6 +16,9 @@ public partial class DatabaseContext : DbContext
 
     public virtual DbSet<Truck> Trucks { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-NU2GNP3\\SQLEXPRESS; Database=Coldrun; Trusted_Connection=True; TrustServerCertificate=True");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Truck>(entity =>

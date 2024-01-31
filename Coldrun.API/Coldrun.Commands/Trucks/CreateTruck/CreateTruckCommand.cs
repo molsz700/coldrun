@@ -1,5 +1,4 @@
-﻿using Coldrun.Database.Enums;
-using MediatR;
+﻿using MediatR;
 
 namespace Coldrun.Commands.Trucks.CreateTruck
 {

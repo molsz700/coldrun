@@ -6,12 +6,8 @@ namespace Coldrun.Commands.Trucks.UpdateTruck
 {
     public class UpdateTruckCommandValidator : AbstractValidator<UpdateTruckCommand>
     {
-        private readonly DatabaseContext _databaseContext;
-
-        public UpdateTruckCommandValidator(DatabaseContext databaseContext)
+        public UpdateTruckCommandValidator()
         {
-            _databaseContext = databaseContext;
-
             RuleFor(x => x.Code).Must(ExistsInDatabase).WithMessage("Code not found");
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name must not be empty!");
             RuleFor(x => x.TruckStatus).Must((obj, status) => IsValidStatusUpdate(obj.Code, status)).WithMessage("Wrong status");
@@ -19,26 +15,32 @@ namespace Coldrun.Commands.Trucks.UpdateTruck
 
         private bool ExistsInDatabase(string code)
         {
-            return _databaseContext.Trucks.Any(x => x.Code == code);
+            using(var databaseContext = new DatabaseContext())
+            {
+                return databaseContext.Trucks.Any(x => x.Code == code);
+            }            
         }
 
         private bool IsValidStatusUpdate(string code, TruckStatus newStatus)
         {
             var result = true;
 
-            var entity = _databaseContext.Trucks.FirstOrDefault(x => x.Code == code);
-            if (entity != null)
+            using(var databaseContext = new DatabaseContext())
             {
-                if(!(entity.Status == TruckStatus.OutOfService || newStatus == TruckStatus.OutOfService))
+                var entity = databaseContext.Trucks.FirstOrDefault(x => x.Code == code);
+                if (entity != null)
                 {
-                    switch (entity.Status)
+                    if (!(entity.Status == TruckStatus.OutOfService || newStatus == TruckStatus.OutOfService))
                     {
-                        case TruckStatus.Loading: if (newStatus != TruckStatus.ToJob) result = false; break;
-                        case TruckStatus.ToJob: if (newStatus != TruckStatus.AtJob) result = false; break;
-                        case TruckStatus.AtJob: if (newStatus != TruckStatus.Returning) result = false; break;
-                        case TruckStatus.Returning: if (newStatus != TruckStatus.Loading) result = false; break;
+                        switch (entity.Status)
+                        {
+                            case TruckStatus.Loading: if (newStatus != TruckStatus.ToJob) result = false; break;
+                            case TruckStatus.ToJob: if (newStatus != TruckStatus.AtJob) result = false; break;
+                            case TruckStatus.AtJob: if (newStatus != TruckStatus.Returning) result = false; break;
+                            case TruckStatus.Returning: if (newStatus != TruckStatus.Loading) result = false; break;
+                        }
                     }
-                }               
+                }
             }
 
             return result;
