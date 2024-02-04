@@ -4,13 +4,13 @@ using FluentValidation;
 
 namespace Coldrun.Commands.Trucks.UpdateTruck
 {
-    public class UpdateTruckCommandValidator : AbstractValidator<UpdateTruckCommand>
+    public sealed class UpdateTruckCommandValidator : AbstractValidator<UpdateTruckCommand>
     {
         public UpdateTruckCommandValidator()
         {
             RuleFor(x => x.Code).Must(ExistsInDatabase).WithMessage("Code not found");
             RuleFor(x => x.Name).NotEmpty().WithMessage("Name must not be empty!");
-            RuleFor(x => x.TruckStatus).Must((obj, status) => IsValidStatusUpdate(obj.Code, status)).WithMessage("Wrong status");
+            RuleFor(x => x.Status).Must((obj, status) => IsValidStatusUpdate(obj.Code, status)).WithMessage("Wrong status");
         }
 
         private bool ExistsInDatabase(string code)

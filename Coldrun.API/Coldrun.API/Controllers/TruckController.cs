@@ -1,7 +1,6 @@
 using Coldrun.Commands.Trucks.CreateTruck;
 using Coldrun.Commands.Trucks.DeleteTruck;
 using Coldrun.Commands.Trucks.UpdateTruck;
-using Coldrun.Database;
 using Coldrun.Queries.Trucks.GetTruck;
 using Coldrun.Queries.Trucks.GetTrucksFiltered;
 using MediatR;

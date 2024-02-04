@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Coldrun.Commands.Trucks.DeleteTruck
 {
-    public class DeleteTruckCommandValidator : AbstractValidator<DeleteTruckCommand>
+    public sealed class DeleteTruckCommandValidator : AbstractValidator<DeleteTruckCommand>
     {
         public DeleteTruckCommandValidator()
         {

@@ -22,7 +22,7 @@ namespace Coldrun.Commands.Trucks.UpdateTruck
                     Code = found.Code,
                     Name = request.Name,
                     Description = request.Description,
-                    Status = request.TruckStatus
+                    Status = request.Status
                 };
 
                 _databaseContext.Entry(found).CurrentValues.SetValues(updatedTruck);

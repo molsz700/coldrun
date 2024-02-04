@@ -17,8 +17,7 @@ namespace Coldrun.Commands.Trucks.CreateTruck
             using (var context = new DatabaseContext())
             {
                 return !context.Trucks.Any(x => x.Code == code);
-            }
-           
+            }           
         }
 
         private bool IsAlphanumerical(string code)
