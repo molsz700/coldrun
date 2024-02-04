@@ -118,7 +118,7 @@ namespace Coldrun.UnitTests.Truck
             {
                 Code = "code1!",
                 Name = "test",
-                TruckStatus = Database.Enums.TruckStatus.OutOfService,
+                Status = Database.Enums.TruckStatus.OutOfService,
                 Description = "test",
             };
 
@@ -128,7 +128,7 @@ namespace Coldrun.UnitTests.Truck
             //Assser
             validationResult.ShouldHaveValidationErrorFor(x => x.Code).Only();
             validationResult.ShouldNotHaveValidationErrorFor(x => x.Name);
-            validationResult.ShouldNotHaveValidationErrorFor(x => x.TruckStatus);
+            validationResult.ShouldNotHaveValidationErrorFor(x => x.Status);
             validationResult.ShouldNotHaveValidationErrorFor(x => x.Description);
         }
 
@@ -140,7 +140,7 @@ namespace Coldrun.UnitTests.Truck
             {
                 Code = "code1",
                 Name = "test",
-                TruckStatus = Database.Enums.TruckStatus.OutOfService,
+                Status = Database.Enums.TruckStatus.OutOfService,
                 Description = "test",
             };
 
